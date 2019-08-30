@@ -1,0 +1,128 @@
+/*!
+ * Bootstrap Utilities v4.3.1 (https://getbootstrap.com/)
+ * Copyright 2011-2019 The Bootstrap Authors
+ * Copyright 2011-2019 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+
+// Configuration
+
+@import "../scss/functions";
+@import "../scss/variables";
+@import "../scss/mixins";
+@import "../scss/utilities";
+
+//slice everything from bs `$utilities` into smaller categories
+
+$display-classes: (
+  "align",
+  "float",
+  "overflow",
+  "display",
+  "position",
+  "visibility"
+);
+
+$flex-classes: (
+  "flex",
+  "flex-direction",
+  "flex-grow",
+  "flex-shrink",
+  "flex-wrap",
+  "justify-content",
+  "align-items",
+  "align-content",
+  "align-self",
+  "order"
+);
+
+$sizing-classes: (
+  "width",
+  "max-width",
+  "viewport-width",
+  "min-viewport-width",
+  "height",
+  "max-height",
+  "viewport-height",
+  "min-viewport-height"
+);
+
+$spacing-classes: (
+  // Margin utilities
+  "margin",
+  "margin-x",
+  "margin-y",
+  "margin-top",
+  "margin-right",
+  "margin-bottom",
+  "margin-left",
+  // Negative margin utilities
+  "negative-margin",
+  "negative-margin-x",
+  "negative-margin-y",
+  "negative-margin-top",
+  "negative-margin-right",
+  "negative-margin-bottom",
+  "negative-margin-left",
+  // Padding utilities
+  "padding",
+  "padding-x",
+  "padding-y",
+  "padding-top",
+  "padding-right",
+  "padding-bottom",
+  "padding-left"
+);
+
+//TODO color in text???
+$text-classes: (
+  "font-weight",
+  "text-transform",
+  "text-align",
+  "color",
+  "background-color",
+  "white-space",
+  "text-decoration",
+  "font-style",
+  "overflow-wrap",
+  "font-family"
+);
+
+$style-classes: (
+  "border",
+  "border-top",
+  "border-right",
+  "border-bottom",
+  "border-left",
+  "border-color",
+  "rounded",G
+  "rounded-top",
+  "rounded-right",
+  "rounded-bottom",
+  "rounded-left",
+  "shadow"
+);
+
+$display-utils: map-get-multiple($utilities, $display-classes);
+$flex-utils: map-get-multiple($utilities, $flex-classes);
+$sizing-utils: map-get-multiple($utilities, $sizing-classes);
+$spacing-utils: map-get-multiple($utilities, $spacing-classes);
+$text-utils: map-get-multiple($utilities, $text-classes);
+$style-utils: map-get-multiple($utilities, $style-classes);
+
+$media-only: map-remove($grid-breakpoints, 'xs');
+
+// function to deactivate entries that cause media rules
+@function no-media($utilMap) {
+  $temp: ();
+  @each $key, $utility in $utilMap {
+    @if type-of($utility) == "map" {
+      $clean: map-remove($utility, "print", "responsive");
+      $temp: map-merge(
+        ($key: $clean),
+        $temp
+      );
+    }
+  }
+  @return $temp;
+}
