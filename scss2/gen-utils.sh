@@ -3,7 +3,7 @@ temp=.genutil.temp
 grep "utils:" _utilities.scss | sed "s/:.*//g" | sed "s/^.*\\$//g" > $temp
 
 header="@import \"./utilities\";"
-footer="@import \"../scss/utilities/api\";"
+footer="@import \"../node_modules/bootstrap/scss/utilities/api\";"
 
 for util in `cat $temp`
 do

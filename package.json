@@ -1,0 +1,24 @@
+{
+  "name": "bs-modules",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "css": "node-sass --output-style expanded --precision 6 scss2/ -o dist/css/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robrez/bootstrap-modules.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/robrez/bootstrap-modules/issues"
+  },
+  "homepage": "https://github.com/robrez/bootstrap-modules#readme",
+  "devDependencies": {
+    "bootstrap": "https://github.com/twbs/bootstrap#master",
+    "node-sass": "^4.12.0"
+  }
+}
