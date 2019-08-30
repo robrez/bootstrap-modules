@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "css": "node-sass --output-style expanded --precision 6 scss2/ -o dist/css/",
+    "build": "npm run gen:scss && npm run css",
+    "css": "node-sass --output-style expanded --precision 6 scss/ -o dist/css/",
+    "gen:scss": "node scripts/generateUtilsScss.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
