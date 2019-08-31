@@ -22,6 +22,8 @@ project  | comments
 [nik-christou/lit-element-bootstrap](https://github.com/nik-christou/lit-element-bootstrap) | looks very promising
 [smart elements](https://github.com/HTMLElements/Bootstrap-Web-Components) | doesn't work under shadow dom
 
+Additionally, the bootstrap maintainers [seem agreeable](https://github.com/twbs/bootstrap/issues/28131) to webcomponents.
+
 `twbs/bootstrap` has eliminated jQuery and also now contains ESM for each component.  It could be possible to make web components that just consume those existing bootstrap esm classes. Initial research into this approach indicates it would require a lot of orchestration among the host component and the bootstrap classes.. may be better, lighter, easier and more efficient to just implement components
 
 ### Progress
