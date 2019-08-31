@@ -4,9 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npm run gen:scss && npm run css",
-    "css": "node-sass --output-style expanded --precision 6 scss/ -o dist/css/",
-    "gen:scss": "node scripts/generateUtilsScss.js",
+    "start": "es-dev-server --root-dir ./ --app-index demo/index.html --node-resolve --watch --open",
+    "build": "npm run bs-css:build && npm run button:build",
+    "bs-css:build": "npm run bs-css:gen && npm run bs-css",
+    "bs-css:gen": "node scripts/generateUtilsScss.js",
+    "bs-css": "npm run bs-css:utils",
+    "bs-css:utils": "node-sass --output-style expanded --precision 6 packages/bootstrap-css/scss/utilities/ -o packages/bootstrap-css/dist/css/",
+    "button:build": "npm run button:scss",
+    "button:scss": "node scripts/sass-render/bin/sass-render.js -s 'button.scss'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,6 +26,15 @@
   "homepage": "https://github.com/robrez/bootstrap-modules#readme",
   "devDependencies": {
     "bootstrap": "https://github.com/twbs/bootstrap#master",
-    "node-sass": "^4.12.0"
+    "command-line-args": "^5.0.2",
+    "command-line-usage": "^5.0.5",
+    "es-dev-server": "^1.17.1",
+    "glob": "^7.1.4",
+    "node-sass": "^4.12.0",
+    "node-sass-import": "^2.0.1",
+    "sass": "^1.20.1"
+  },
+  "dependencies": {
+    "lit-element": "^2.2.1"
   }
 }

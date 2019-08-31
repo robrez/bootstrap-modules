@@ -1,0 +1,105 @@
+@import "variables";
+
+@function deep-map-get ($map, $keys...) {
+    @if type-of($map) != 'map' {
+      @error 'The argument $map: `#{$map}` is of incorrect type: `#{type-of($map)}`. Type of `Map` is required!';
+    }
+  
+    @each $key in $keys {
+      $map: map-get($map, $key);
+    }
+  
+    @return $map;
+}
+
+@mixin render-button($theme, $values) {
+
+  :host([#{$theme}]) .btn {
+    color: var(--bs-button-#{$theme}-color, deep-map-get($values, "normal", "color"));
+    background-color: var(--bs-button-#{$theme}-bg-color, deep-map-get($values, "normal", "background"));
+    border-color: var(--bs-button-#{$theme}-border-color, deep-map-get($values, "normal", "border"));
+  }
+
+  :host([#{$theme}][outline]) .btn {
+    color: var(--bs-button-#{$theme}-color, deep-map-get($values, "normal", "background"));
+    background-color: transparent;
+    border-color: var(--bs-button-#{$theme}-border-color, deep-map-get($values, "normal", "border"));
+  }
+
+  :host([#{$theme}]) .btn:hover {
+    color: var(--bs-button-#{$theme}-hover-color, deep-map-get($values, "hover", "color"));
+    background-color: var(--bs-button-#{$theme}-hover-bg-color, deep-map-get($values, "hover", "background"));
+    border-color: var(--bs-button-#{$theme}-hover-border-color, deep-map-get($values, "hover", "border"));
+  }
+
+  :host([#{$theme}]) .btn:focus {
+    color: var(--bs-button-#{$theme}-focus-color, deep-map-get($values, "focus", "color"));
+    background-color: var(--bs-button-#{$theme}-focus-bg-color, deep-map-get($values, "focus", "background"));
+    border-color: var(--bs-button-#{$theme}-focus-border-color, deep-map-get($values, "focus", "border"));
+    box-shadow: 0 0 0 
+      var(--bs-button-#{$theme}-outline-width, deep-map-get($values, "focus", "outlineWidth"))
+      var(--bs-button-#{$theme}-outline-color, deep-map-get($values, "focus", "outlineColor"));
+  }
+
+  :host([#{$theme}]) .btn:active {
+    color: var(--bs-button-#{$theme}-active-color, deep-map-get($values, "active", "color"));
+    background-color: var(--bs-button-#{$theme}-active-bg-color, deep-map-get($values, "active", "background"));
+    border-color: var(--bs-button-#{$theme}-active-border-color, deep-map-get($values, "active", "border"));
+  }
+
+  //omitting disabled theme variants since they have the same values as "normal"
+  //:host([#{$theme}][disabled]) .btn {
+    //color: var(--bs-button-#{$theme}-disabled-color, deep-map-get($values, "disabled", "color"));
+    //background-color: var(--bs-button-#{$theme}-disabled-bg-color, deep-map-get($values, "disabled", "background"));
+    //border-color: var(--bs-button-#{$theme}-disabled-border-color, deep-map-get($values, "disabled", "border"));
+  //}
+
+}
+
+@mixin render-button-size($size, $values) {
+  :host([#{$size}]) .btn {
+    @include button-size(
+      map-get($values, "py"),
+      map-get($values, "px"),
+      map-get($values, "fontSize"),
+      map-get($values, "lineHeight"),
+      map-get($values, "borderRadius")
+    );
+  }
+}
+
+// baseline from bootstrap
+@import "button-base";
+
+:host {
+  outline: none;
+  display: inline-block;
+}
+
+// themes
+@each $theme, $values in $button-themes {
+  @include render-button($theme, $values);
+};
+
+//sizes
+@each $size, $values in $button-sizes {
+  @include render-button-size($size, $values);
+};
+
+//block
+
+:host([block]) {
+  display: block;
+  width: 100%;
+
+  & .btn {
+    display: block;
+    width: 100%;
+  }
+}
+
+
+:host([disabled]) {
+  pointer-events: none;
+  opacity: .65;
+}

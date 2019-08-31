@@ -33,6 +33,7 @@ Any distinguishing characteristics will be documented
 Bootstrap utilites api will generate rules for each entry in `$utilities`. Each of these rules will also contain media-specific variants for each breakpoint in `$grid-breakpoints`
 
 The scripts here will breakup utilities into more modular categories:
+
 - Display
 - Flexbox
 - Sizing
@@ -48,22 +49,19 @@ There are some noteworthy community initiatives to make bootstrap-flavored webco
 
 project  | comments
 ---------|----------------
-[aybolit](https://github.com/web-padawan/aybolit) | solid work, still ramping up on component coverage
-[morbidick](https://github.com/morbidick/bootstrap-webcomponents) | not yet evaluated
-[nik-christou](https://github.com/nik-christou/lit-element-bootstrap) | looks promising, doesn't yet allow for overrideable theming
+[web-padawan/aybolit](https://github.com/web-padawan/aybolit) | solid work, still ramping up on component coverage
+[morbidick/bootstrap-webcomponents](https://github.com/morbidick/bootstrap-webcomponents) | not yet evaluated
+[nik-christou/lit-element-bootstrap](https://github.com/nik-christou/lit-element-bootstrap) | looks very promising
 [smart elements](https://github.com/HTMLElements/Bootstrap-Web-Components) | doesn't work under shadow dom
-
 
 `twbs/bootstrap` has eliminated jQuery and also now contains ESM for each component.  It could be possible to make web components that just consume those existing bootstrap esm classes. Initial research into this approach indicates it would require a lot of orchestration among the host component and the bootstrap classes.. may be better, lighter, easier and more efficient to just implement components
 
+### Progress
 
+To get a feel for different options, this repo has started implementing `packages/bs-button`
 
-
-
-# Developing
+## Developing
 
 - `npm install` -- install dependencies
-- `npm run css` -- generate css from scss scripts
-- `npm run gen:scss` -- generate scss where possible
 - `npm run build` -- generate/compile all the things
-
+- `npm run start` -- serve the demos
