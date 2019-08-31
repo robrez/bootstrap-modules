@@ -26,7 +26,9 @@ project  | comments
 
 ### Progress
 
-To get a feel for different options, this repo has started implementing a component... see [bs-button](https://github.co/robrez/bootstrap-modules/tree/master/packages/bootstrap-css)
+To get a feel for different options, this repo has started implementing a component
+
+See [packges/button](https://github.com/robrez/bootstrap-modules/tree/master/packages/button)
 
 ## Developing
 
