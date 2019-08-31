@@ -54,6 +54,11 @@ That allows a high degree of finite customization... but perhaps at the cost of 
 
 Another possible approach might be something similar to `web-padawan/aybolit` could also be utilized -- all color-related values are calculated. So you just set 3 properties per theme.. (rgb, or hsl). for example: `--bs-button-primary-r`, `--bs-button-primary-g`, `--bs-button-primary-b`
 
+eg: 
+
+- [gist lighten/darken](https://gist.github.com/tunguskha/e4dceb7080bfeea486cd476e9631a413)
+- [calc contrast color](https://css-tricks.com/css-variables-calc-rgb-enforcing-high-contrast-colors/)
+
 Additional theme options:
 
 - `outline` variant
