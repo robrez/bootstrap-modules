@@ -3,43 +3,11 @@
 This project has two high-level goals:
 
 - CSS: Generate small, composible CSS modules out of bootstrap
-- WebComponents (TBD)
+- WebComponents
 
 ## CSS
 
-This project will aim to use bootstrap's sass library as-is -- as published by `twbs/bootstrap`.
-
-An expected outcome will be to export:
-
-- Plain CSS files
-- LitElement style CSS template modules
-- Legacy polymer dom-modules
-
-This will enable authors of webComponents who might be using shadow dom to import bits of bootstrap a-la-carte into an shadow root. For example, need the bootstrap grid? import just that.
-
-### Differences
-
-Although this project will aim to use things as-is, there are some areas that have potential for improvement.  These areas will be evaluated:
-
-- eliminate `!important`
-- stop using `position: relative` in grid
-- make use of css custom properties for better extensibility.. this is very likely to happen
-- create a responsive wrapper that is based on "element queries" rather than media queries... this would be a fantastic improvement
-
-Any distinguishing characteristics will be documented
-
-### Utilities
-
-Bootstrap utilites api will generate rules for each entry in `$utilities`. Each of these rules will also contain media-specific variants for each breakpoint in `$grid-breakpoints`
-
-The scripts here will breakup utilities into more modular categories:
-
-- Display
-- Flexbox
-- Sizing
-- Spacing
-- Text
-- Style
+See [packges/bootstrap-css](https://github.com/robrez/bootstrap-modules/tree/master/packages/bootstrap-css)
 
 ## WebComponents
 
@@ -58,7 +26,7 @@ project  | comments
 
 ### Progress
 
-To get a feel for different options, this repo has started implementing `packages/bs-button`
+To get a feel for different options, this repo has started implementing `packages/bs-button`.
 
 ## Developing
 

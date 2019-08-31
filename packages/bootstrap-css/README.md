@@ -10,6 +10,8 @@ An expected outcome will be to export:
 
 This will enable authors of webComponents who might be using shadow dom to import bits of bootstrap a-la-carte into an shadow root. For example, need the bootstrap grid? import just that.
 
+The effectiveness and development experience of this methodology will be evaluated... some things may end up need to be promoted to web-components
+
 ## Differences
 
 Although this package will aim to use things as-is, there are some areas that have potential for improvement.  These areas will be evaluated:
