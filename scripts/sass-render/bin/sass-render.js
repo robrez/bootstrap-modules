@@ -50,12 +50,10 @@ if (!source) {
 }
 
 //glob("packages/button/scss/button.scss", (err, files) => {
-glob("packages/button/scss/button.scss", (err, files) => {
-  console.log("s", files);
+glob(source, (err, files) => {
   files
     .filter(file => !path.basename(file).startsWith('_'))
     .forEach(file => {
-      console.log("file", file);
       sassRender(file).catch(error => {
         console.error(error);
         process.exit(-1);

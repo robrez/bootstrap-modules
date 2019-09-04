@@ -1,13 +1,6 @@
 import { css } from 'lit-element';
 
-export default css`.btn-sm {
-  padding: 0.25rem 0.5rem;
-  font-size: 0.875rem;
-  line-height: 1.5;
-  border-radius: 0.2rem;
-}
-
-button:focus {
+export default css`button:focus {
   outline: 1px dotted;
   outline: 5px auto -webkit-focus-ring-color;
 }

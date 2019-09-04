@@ -15,6 +15,7 @@ async function sassToCss(sassFile) {
   const result = await renderSass({
     file: sassFile,
     importer: nodeSassImport,
+    precision: 6,
     outputStyle: 'expanded'
   });
   return result.css.toString();
