@@ -1,4 +1,6 @@
-.visible {
+import { css } from 'lit-element';
+
+export default css`.visible {
   visibility: visible !important;
 }
 
@@ -104,4 +106,4 @@
 
 .align-text-top {
   vertical-align: text-top !important;
-}
+}`;

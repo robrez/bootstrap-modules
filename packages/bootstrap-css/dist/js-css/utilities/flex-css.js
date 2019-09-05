@@ -1,4 +1,6 @@
-.order-first {
+import { css } from 'lit-element';
+
+export default css`.order-first {
   order: -1 !important;
 }
 
@@ -164,4 +166,4 @@
 
 .flex-fill {
   flex: 1 1 auto !important;
-}
+}`;

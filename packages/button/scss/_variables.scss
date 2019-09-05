@@ -120,14 +120,12 @@ $button-sizes: (
     "py": $btn-padding-y-lg,
     "px": $btn-padding-x-lg,
     "fontSize": $btn-font-size-lg,
-    "lineHeight": $btn-line-height-lg,
     "borderRadius": $btn-border-radius-lg
   ),
   "small": (
     "py": $btn-padding-y-sm,
     "px": $btn-padding-x-sm,
     "fontSize": $btn-font-size-sm,
-    "lineHeight": $btn-line-height-sm,
     "borderRadius": $btn-border-radius-sm
   )
 );

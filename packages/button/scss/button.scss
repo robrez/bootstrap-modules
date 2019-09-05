@@ -62,7 +62,6 @@
       map-get($values, "py"),
       map-get($values, "px"),
       map-get($values, "fontSize"),
-      map-get($values, "lineHeight"),
       map-get($values, "borderRadius")
     );
   }

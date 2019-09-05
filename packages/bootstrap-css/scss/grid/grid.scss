@@ -1,0 +1,9 @@
+@import "grid_common";
+
+//only render the base grid classes, no responsive stuff
+$grid-breakpoints: map-merge(
+    ("xs": map-get($grid-breakpoints, 'xs')),
+    ()
+);
+
+@import "../../../../node_modules/bootstrap/scss/grid";

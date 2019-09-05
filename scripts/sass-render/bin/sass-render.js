@@ -4,15 +4,22 @@ const path = require('path');
 const commandLineArgs = require('command-line-args');
 const commandLineUsage = require('command-line-usage');
 const glob = require('glob');
-const { sassRender } = require('../index.js');
+const { sassRender, bootstrapCss } = require('../index.js');
 
 const options = [
   {
     name: 'source',
     alias: 's',
     type: String,
-    description: 'Template file to render sass into.',
+    description: 'Source sass file.',
     defaultOption: true
+  },
+  {
+    name: 'css',
+    alias: 'c',
+    type: Boolean,
+    description: 'CSS and template output',
+    defaultOption: false
   },
   {
     name: 'help',
@@ -22,7 +29,7 @@ const options = [
   }
 ];
 
-const { source, help } = commandLineArgs(options);
+const { source, css, help } = commandLineArgs(options);
 
 function printUsage() {
   const sections = [
@@ -54,9 +61,16 @@ glob(source, (err, files) => {
   files
     .filter(file => !path.basename(file).startsWith('_'))
     .forEach(file => {
-      sassRender(file).catch(error => {
-        console.error(error);
-        process.exit(-1);
-      });
+      if (css) {
+        bootstrapCss(file).catch(error => {
+          console.error(error);
+          process.exit(-1);
+        });
+      } else {
+        sassRender(file).catch(error => {
+          console.error(error);
+          process.exit(-1);
+        });
+      }
     });
 });
