@@ -8,8 +8,7 @@
     "build": "npm run bs-css:build && npm run button:build",
     "bs-css:build": "npm run bs-css:gen && npm run bs-css",
     "bs-css:gen": "node scripts/generateUtilsScss.js",
-    "bs-css": "npm run bs-css:utils",
-    "bs-css:utils": "node-sass --output-style expanded --precision 6 packages/bootstrap-css/scss/utilities/ -o packages/bootstrap-css/dist/css/",
+    "bs-css": "node scripts/sass-render/bin/sass-render.js -s \"packages/bootstrap-css/scss/*/*.scss\" -c",
     "button:build": "npm run button:scss",
     "button:scss": "node scripts/sass-render/bin/sass-render.js -s \"packages/button/scss/*.scss\"",
     "test": "echo \"Error: no test specified\" && exit 1"
