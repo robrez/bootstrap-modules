@@ -3,6 +3,9 @@
 <head>
 
   <style>
+    body {
+      background: #eee;
+    }
     bs-button[block]+bs-button[block] {
       margin-top: 0.5rem;
     }
@@ -11,10 +14,8 @@
 </head>
 
 <body>
-
-
   <h2>Basic</h2>
-  <p>
+  <bs-button-group>
     <bs-button primary>Primary</bs-button>
     <bs-button secondary>Secondary</bs-button>
     <bs-button success>Success</bs-button>
@@ -23,19 +24,17 @@
     <bs-button info>Info</bs-button>
     <bs-button light>Light</bs-button>
     <bs-button dark>Dark</bs-button>
-  </p>
+  </bs-button-group>
 
-  <h2>Alternative Impl - HSL</h2>
-  <p>
-    <bs-button2 primary>Primary</bs-button2>
-    <bs-button2 secondary>Secondary</bs-button2>
-    <bs-button2 success>Success</bs-button2>
-    <bs-button2 danger>Danger</bs-button2>
-    <bs-button2 warning>Warning</bs-button2>
-    <bs-button2 info>Info</bs-button2>
-    <bs-button2 light>Light</bs-button2>
-    <bs-button2 dark>Dark</bs-button2>
-  </p>
+  <h2>pop</h2>
+  <div>
+    <bs-popover>
+      <div>hello there</div>
+      <div>hello there</div>
+      <div>hello there</div>
+      <div>hello there</div>
+    </bs-popover>
+  </div>
 
   <h2>Outline</h2>
   <p>
@@ -97,6 +96,8 @@
 <script type="module">
   import '../packages/button/src/button.js';
   import '../packages/button/src/button2.js';
+  import '../packages/button-group/src/button-group.js';
+  import '../packages/popover/src/popover.js';
 </script>
 
 </html>

@@ -17,7 +17,7 @@ button {
 }
 
 .btn {
-  display: inline-block;
+  display: inline-flex;
   font-weight: 400;
   color: #212529;
   text-align: center;
@@ -54,7 +54,7 @@ button {
 
 :host {
   outline: none;
-  display: inline-block;
+  display: inline-flex;
 }
 
 :host([dark]) .btn {
@@ -329,4 +329,24 @@ button {
 :host([disabled]) {
   pointer-events: none;
   opacity: 0.65;
-}`;
+}
+
+:host([group]:first-child) .btn {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+:host([group]:not(:first-child):not(:last-child)) .btn {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+:host([group]:last-child) .btn {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+
+`;
